@@ -85,7 +85,7 @@ app.post(['/chat', '/api/chat'], async (req, res) => {
         });
       } catch (apiError) {
         console.error('🔴 OpenAI SDK Error, falling back to simulated stream:', apiError.message);
-        const alertPrefix = `> ⚠️ **Notice: Live OpenAI API Call failed.** (Reason: *${apiError.message}*)\n>\n> *Auto-falling back to ChatNova simulation mode so you can continue testing this UI! Go ahead and ask me for code, tables, or explanation questions.*\n\n`;
+        const alertPrefix = `> ⚠️ **Notice: Live OpenAI API Call failed.** (Reason: *${apiError.message}*)\n>\n> *Auto-falling back to 𝗧𝗶𝘁𝗖𝗼𝗱𝗲 simulation mode so you can continue testing this UI! Go ahead and ask me for code, tables, or explanation questions.*\n\n`;
         return runSimulatedStream(messages, res, alertPrefix);
       }
 
@@ -138,7 +138,7 @@ function runSimulatedStream(messages, res, prefixText = '') {
   if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey') || lowerMessage.includes('start')) {
     responseText = `### Hello there! 👋
 
-I am **ChatNova**, running in **developer simulation mode** because your \`.env\` file does not contain a valid \`OPENAI_API_KEY\`. 
+I am **𝗧𝗶𝘁𝗖𝗼𝗱𝗲**, running in **developer simulation mode** because your \`.env\` file does not contain a valid \`OPENAI_API_KEY\`. 
 
 To activate my true OpenAI core:
 1. Open the \`.env\` file in the project root folder.
